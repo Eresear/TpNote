@@ -1,0 +1,8 @@
+# Default ignored files
+/workspace.xml
+/src/META-INF
+# Datasource local storage ignored files
+/dataSources/
+
+# Datasource local storage ignored files
+/dataSources.local.xml
