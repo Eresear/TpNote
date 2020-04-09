@@ -4,7 +4,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>NULLServlet</servlet-name>
-        <servlet-class>NULLServlet</servlet-class>
+        <servlet-name>offreController</servlet-name>
+        <servlet-class>controller.OffreController</servlet-class>
     </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>offreController</servlet-name>
+        <url-pattern>/Accueil</url-pattern>
+    </servlet-mapping>
 </web-app>
