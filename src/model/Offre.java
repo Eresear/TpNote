@@ -13,6 +13,7 @@ public class Offre {
     private String nomDestination;
     private int nbPlaces;
     private int tarif;
+    private String description;
 
     @OneToMany(mappedBy = "idOffre")
     private List<Activites> activitesList;

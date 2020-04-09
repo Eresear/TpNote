@@ -9,8 +9,5 @@ public class Launch {
                 Persistence.createEntityManagerFactory("test");
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-
-
     }
 }
