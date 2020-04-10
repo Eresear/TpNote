@@ -17,9 +17,8 @@ public class Activites {
 
     }
 
-    public Activites(String nomActivite, Offre idOffre) {
+    public Activites(String nomActivite) {
         this.nomActivite = nomActivite;
-        this.idOffre = idOffre;
     }
 
     public int getIdActivite() {
