@@ -10,23 +10,34 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">"
 <html>
 <head>
-    <title>login in</title>
+    <title>Se connecter</title>
 </head>
-<body class="text-center">
+<style>
 
-            <form class="form-signin" action="login" method="post"
-                  style="text-align: center;width: 100%;max-width: 330px;padding: 15px;margin: auto;position: relative;">
-                <label ><%=request.getAttribute("msg") !=null ?request.getAttribute("msg") :" "%></label>
-                <label for="username" class="sr-only">username</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+    body {
+        font-family: 'Raleway', sans-serif;
+    }
+</style>
+<body class="text-center" style="margin-top: 10%">
 
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-            </form>
+    <h8>Vous pouvez vous connecter uniquement si vous êtes un employé</h8>
+
+    <form class="form-signin" action="/login" method="post"
+          style="text-align: center;width: 100%;max-width: 330px;padding: 15px;margin: auto;position: relative;">
+        <label >
+            <%=request.getAttribute("msg") !=null ?request.getAttribute("msg") :" "%>
+        </label>
+        <label for="username" class="sr-only">username</label>
+
+        <input style= "margin-bottom: 10px" type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus/>
+        <label for="inputPassword" class="sr-only">Password</label>
+
+        <input style= "margin-bottom: 10px" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required/>
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
 
 </body>
 </html>

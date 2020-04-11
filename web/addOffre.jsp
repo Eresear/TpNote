@@ -8,23 +8,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">"
+
 <style>
-    .entry
+    .entry:not(:first-of-type)
     {
-        padding-right: 10px;
+        margin-top: 10px;
     }
 
-
+    .glyphicon
+    {
+        font-size: 12px;
+    }
+    body {
+        font-family: 'Raleway', sans-serif;
+    }
 </style>
-
 <html>
 <head>
     <title>Title</title>
@@ -42,12 +45,12 @@
                 <div class="modal-body">
 
                     <form style="width: auto;">
-                            <input type="text" placeholder="Lieu de destination" style="min-width: 100%">
+                            <input style="margin-bottom: 10px" type="text" placeholder="Lieu de destination" style="min-width: 100%">
 
                             <textarea placeholder= "Description" style="min-width: 100%"></textarea>
 
 
-                            <input type="number" name="tarif" placeholder="Tarif" style="min-width: 100%">
+                            <input style="margin-top: 10px" style="margin-bottom: 10px" type="number" name="tarif" placeholder="Tarif" style="min-width: 100%">
                     </form>
 
 
@@ -56,13 +59,12 @@
 
                             <form role="form" autocomplete="off">
                                 <div class="entry input-group col-xs-3">
-                                    <input class="form-control" name="Chosesfields[]" type="text" placeholder="Choses à faire" />
-<%--                                    <span class="input-group-btn">--%>
-                                        <button class="btn btn-success btn-chose-add "  type="button">
-                                            <i class="fas fa-plus"></i>
+                                    <input style="margin-bottom: 10px" class="form-control" name="Chosesfields[]" type="text" placeholder="Choses à faire" />
+                                    <span class="input-group-btn">
+                                        <button style="margin-bottom: 10px" class="btn btn-success btn-chose-add "  type="button">
+                                            <span class="glyphicon glyphicon-plus"></span>
                                         </button>
-
-<%--                                    </span>--%>
+                                    </span>
                                 </div>
                             </form>
 
@@ -76,12 +78,12 @@
 
                             <form role="form" autocomplete="off">
                                 <div class="entry input-group col-xs-3">
-                                    <input class="form-control" name="Activitefields[]" type="text" placeholder="Les activités possible" />
-
-                                        <button class="btn btn-success btn-act-add " type="button">
-                                            <i class="fas fa-plus"></i>
+                                    <input style="margin-bottom: 10px" class="form-control" name="Activitefields[]" type="text" placeholder="Les activités possible" />
+                                    <span class="input-group-btn">
+                                        <button style="margin-bottom: 10px" class="btn btn-success btn-act-add " type="button">
+                                            <span class="glyphicon glyphicon-plus"></span>
                                         </button>
-
+                                    </span>
                                 </div>
                             </form>
 
@@ -96,8 +98,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button style="margin-bottom: 10px" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button style="margin-bottom: 10px" type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -122,7 +124,7 @@
             controlForm.find('.entry:not(:last) .btn-chose-add')
                 .removeClass('btn-chose-add').addClass('btn-remove')
                 .removeClass('btn-success').addClass('btn-danger')
-                .html('<i class="fas fa-minus"></i>');
+                .html('<span class="glyphicon glyphicon-minus"></span>');
         }).on('click', '.btn-remove', function(e)
         {
             $(this).parents('.entry:first').remove();
@@ -146,7 +148,7 @@
             controlForm.find('.entry:not(:last) .btn-act-add')
                 .removeClass('btn-act-add').addClass('btn-remove')
                 .removeClass('btn-success').addClass('btn-danger')
-                .html('<i class="fas fa-minus"></i>');
+                .html('<span class="glyphicon glyphicon-minus"></span>');
         }).on('click', '.btn-remove', function(e)
         {
             $(this).parents('.entry:first').remove();

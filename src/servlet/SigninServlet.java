@@ -30,10 +30,9 @@ public class SigninServlet extends HttpServlet {
         EmployesDao employesDao = new EmployesDao(entityManager);
         if ( username!=null && pass != null && employesDao.checkLogin(username,pass) ) {
             session.setAttribute("authenticated", "yes");
-            disp = request.getRequestDispatcher("/addOffre.jsp");
-            disp.forward(request, response);
+            response.sendRedirect("/Accueil");
         } else {
-            session.setAttribute("authenticated", "non");
+            //session.setAttribute("authenticated", "no");
             request.setAttribute("msg","Username or password not correct");
             disp = request.getRequestDispatcher("/login.jsp");
             disp.forward(request, response);

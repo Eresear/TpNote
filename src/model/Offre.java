@@ -26,10 +26,11 @@ public class Offre {
 
     }
 
-    public Offre(int nbPlaces, int tarif, String nomDestination) {
+    public Offre(int nbPlaces, int tarif, String nomDestination, String description) {
         this.nbPlaces = nbPlaces;
         this.tarif = tarif;
         this.nomDestination = nomDestination;
+        this.description = description;
     }
 
     public int getIdOffre() {
@@ -60,6 +61,10 @@ public class Offre {
         return reservationList;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setNbPlaces(int nbPlaces) {
         this.nbPlaces = nbPlaces;
     }
@@ -82,5 +87,9 @@ public class Offre {
 
     public void setReservationList(List<Reservation> reservationList) {
         this.reservationList = reservationList;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
