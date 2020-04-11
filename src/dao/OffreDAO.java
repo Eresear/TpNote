@@ -1,9 +1,12 @@
 package dao;
 
+import model.Activites;
+import model.ChoseAFaire;
 import model.Offre;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OffreDAO extends DAO<Offre> {
@@ -12,20 +15,7 @@ public class OffreDAO extends DAO<Offre> {
         super(entityManager);
     }
 
-    @Override
-    public boolean add(Offre element) {
-        return false;
-    }
 
-    @Override
-    public boolean modify(Offre element) {
-        return false;
-    }
-
-    @Override
-    public Offre getObjectById(String id) {
-        return null;
-    }
 
     public List<Offre> getAllOffers(){
         List<Offre> livres;
@@ -38,5 +28,34 @@ public class OffreDAO extends DAO<Offre> {
         }
         return null;
     }
+    public boolean  add(String lieu,String description,int tarif,int nbPlace,String[] choses,String[] activites ){
 
+        try{
+            entityManager.getTransaction().begin();
+            Offre offre = new Offre(nbPlace,tarif,lieu,description);
+            List<ChoseAFaire> choseAFaireList = new ArrayList<ChoseAFaire>();
+            List<Activites> activitesList = new ArrayList<Activites>();
+            for (String chose:choses ) {
+                ChoseAFaire c = new ChoseAFaire(chose);
+                c.setIdOffre(offre);
+                choseAFaireList.add(c);
+            }
+            for (String activite :
+                    activites) {
+                Activites a = new Activites(activite);
+                a.setIdOffre(offre);
+                activitesList.add(a);
+            }
+
+            offre.setActivitesList(activitesList);
+            offre.setChoseAFaireList(choseAFaireList);
+            entityManager.persist(offre);
+            entityManager.getTransaction().commit();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

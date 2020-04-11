@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idReservation;
     private String nomClient;
     private int prix;

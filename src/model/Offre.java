@@ -8,16 +8,16 @@ import java.util.List;
 public class Offre {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idOffre;
     private String nomDestination;
     private int nbPlaces;
     private int tarif;
     private String description;
 
-    @OneToMany(mappedBy = "idOffre")
+    @OneToMany(mappedBy = "idOffre",cascade = CascadeType.ALL)
     private List<Activites> activitesList;
-    @OneToMany(mappedBy = "idOffre")
+    @OneToMany(mappedBy = "idOffre",cascade = CascadeType.ALL)
     private List<ChoseAFaire> choseAFaireList;
     @OneToMany(mappedBy = "offre")
     private List<Reservation> reservationList;

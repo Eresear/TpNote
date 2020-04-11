@@ -6,11 +6,11 @@ import javax.persistence.*;
 public class ChoseAFaire {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idChose;
     private String nomChose;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Offre idOffre;
 
 
@@ -21,6 +21,9 @@ public class ChoseAFaire {
     public ChoseAFaire(String nomChose, Offre idOffre) {
         this.nomChose = nomChose;
         this.idOffre = idOffre;
+    }
+    public  ChoseAFaire(String nomChose){
+        this.nomChose = nomChose;
     }
 
     public Offre getIdOffre() {
