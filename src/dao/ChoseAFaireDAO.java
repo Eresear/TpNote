@@ -11,20 +11,6 @@ public class ChoseAFaireDAO extends DAO<Activites> {
         super(entityManager);
     }
 
-    @Override
-    public boolean add(Activites element) {
-        return false;
-    }
-
-    @Override
-    public boolean modify(Activites element) {
-        return false;
-    }
-
-    @Override
-    public Activites getObjectById(String id) {
-        return null;
-    }
 
     public String getAllChoseAFaier(int idOffre){
         List<String> chosesAFaire;

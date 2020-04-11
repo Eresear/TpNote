@@ -67,15 +67,27 @@
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
       <div class="row justify-content-center">
-        <a href='${pageContext.request.contextPath}/addOffre.jsp'>
-          <button formaction="" class="btn btn-primary" >Ajouter Offre</button>
-        </a>
+          <button formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
       </div>
-
+      <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>
   </c:choose>
+  <c:if test="${requestScope.alert!=null}">
+   <script>
+     $('#modal').modal("show");
+   </script>
+  </c:if>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(function () {
+    $(document).on('click', '#addButton', function(e)
+    {
+      $('#modal').modal("show");
+    });
+  });
+</script>
