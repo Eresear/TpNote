@@ -9,13 +9,13 @@ import javax.persistence.*;
 public class Reservation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReservation;
     private String nomClient;
     private int prix;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Offre offre;
+    private Offre destination;
 
     public Reservation(){
 
@@ -45,4 +45,13 @@ public class Reservation {
     public void setPrix(int prix) {
         this.prix = prix;
     }
+
+    public Offre getDestination() {
+        return destination;
+    }
+
+    public void setDestination(Offre destination) {
+        this.destination = destination;
+    }
+
 }

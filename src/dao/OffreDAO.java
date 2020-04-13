@@ -28,6 +28,16 @@ public class OffreDAO extends DAO<Offre> {
         }
         return null;
     }
+
+    public Offre getObjectById(int idOffre) {
+        try{
+            return entityManager.find(Offre.class,idOffre);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public boolean  add(String lieu,String description,int tarif,int nbPlace,String[] choses,String[] activites ){
 
         try{
@@ -43,7 +53,7 @@ public class OffreDAO extends DAO<Offre> {
             for (String activite :
                     activites) {
                 Activites a = new Activites(activite);
-                a.setIdOffre(offre);
+                a.setNomOffre(offre);
                 activitesList.add(a);
             }
 

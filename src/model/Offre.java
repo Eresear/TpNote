@@ -8,18 +8,16 @@ import java.util.List;
 public class Offre {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idOffre;
     private String nomDestination;
     private int nbPlaces;
     private int tarif;
     private String description;
 
-    @OneToMany(mappedBy = "idOffre",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "destination",cascade = CascadeType.ALL)
     private List<Activites> activitesList;
-    @OneToMany(mappedBy = "idOffre",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "destination",cascade = CascadeType.ALL)
     private List<ChoseAFaire> choseAFaireList;
-    @OneToMany(mappedBy = "offre")
+    @OneToMany(mappedBy = "destination")
     private List<Reservation> reservationList;
 
     public Offre(){
@@ -33,9 +31,6 @@ public class Offre {
         this.description = description;
     }
 
-    public int getIdOffre() {
-        return idOffre;
-    }
 
     public int getNbPlaces() {
         return nbPlaces;
@@ -71,10 +66,6 @@ public class Offre {
 
     public void setTarif(int tarif) {
         this.tarif = tarif;
-    }
-
-    public void setNomDestination(String nomDestination) {
-        this.nomDestination = nomDestination;
     }
 
     public void setActivitesList(List<Activites> activitesList) {

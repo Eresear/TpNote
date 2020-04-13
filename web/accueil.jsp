@@ -13,6 +13,7 @@
     body {
       font-family: 'Raleway', sans-serif;
     }
+
   </style>
   <body>
 
@@ -54,20 +55,44 @@
         <td>${offre.tarif}</td>
         <td>${offre.description}</td>
         <td>
-          <a href='offre=${offre.idOffre}'>Infos</a>
+          <form action = "/Accueil" method = "get">
+            <a href="modalInfos" data-toggle="modal" data-target = "#modalInfos">Infos</a>
+            <input type="hidden" name="nomOffre" value="${offre.nomDestination}">
+          </form>
         </td>
         <td>
-          <a href="?op=reserver&id=${offres.id}">Réserver</a>
+          <a href="?&id=${offre.nomDestination}">Réserver</a>
         </td>
       </tr>
       </c:forEach>
     </table>
   </div>
 
+  <!-- The Modal -->
+  <div class="modal " id="modalInfos">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Détails sur l'offre</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h3>Activités</h3>
+          <p>${requestScope.listActivites}</p>
+        </div>
+        <div class="modal-body">
+          <p>${listChoseAFaire}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
       <div class="row justify-content-center">
-          <button formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
+          <button class="btn btn-primary"  id="addButton">Ajouter Offre</button>
       </div>
       <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>
@@ -77,6 +102,7 @@
      $('#modal').modal("show");
    </script>
   </c:if>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

@@ -51,14 +51,9 @@ public class addOffreServlet extends HttpServlet {
         disp = request.getRequestDispatcher("accueil.jsp");
         disp.forward(request, response);
 
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
 
     }
 }

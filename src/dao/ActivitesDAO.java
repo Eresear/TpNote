@@ -14,10 +14,12 @@ public class ActivitesDAO extends DAO<Activites> {
 
 
 
-    public String getAllActivites(){
+    public String getAllActivites(String destination){
         List<String> activites;
         try{
-            Query query = entityManager.createQuery("SELECT activites.nomActivite FROM Activites activites");
+            Query query = entityManager.createQuery("SELECT activites.nomActivite FROM Activites activites " +
+                    "WHERE activites.destination.nomDestination=:destination");
+            query.setParameter("destination", destination);
             activites = query.getResultList();
             return String.join(",", activites);
         }catch (Exception e){

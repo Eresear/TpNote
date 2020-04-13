@@ -4,8 +4,7 @@ import model.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Launch {
 
@@ -15,10 +14,10 @@ public class Launch {
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        /*ActivitesDAO activitesDAO = new ActivitesDAO(entityManager);
+        //ActivitesDAO activitesDAO = new ActivitesDAO(entityManager);
 
-        System.out.println(activitesDAO.getAllActivites());
-        Offre offre1 = new Offre(100, 300, "Portugal", "Pays Européen");
+        //System.out.println(activitesDAO.getAllActivites("Portugal"));
+        /*Offre offre1 = new Offre(100, 300, "Portugal", "Pays Européen");
         Offre offre2 = new Offre(150, 250, "Italie", "Pays Européen");
         Offre offre3 = new Offre(150, 400, "États Unis", "Pays Américain");
         Offre offre4 = new Offre(100, 500, "Thailand", "Pays Asiatique");
@@ -48,15 +47,15 @@ public class Launch {
         ChoseAFaire cafThai3 = new ChoseAFaire("Aller voir les éléphants du Thailand", offre4);
 
 
-        activites1.setIdOffre(offre1);
-        activites2.setIdOffre(offre1);
+        activites1.setNomOffre(offre1);
+        activites2.setNomOffre(offre1);
 
-        activites3.setIdOffre(offre2);
-        activites4.setIdOffre(offre2);
+        activites3.setNomOffre(offre2);
+        activites4.setNomOffre(offre2);
 
-        activites5.setIdOffre(offre3);
+        activites5.setNomOffre(offre3);
 
-        activites6.setIdOffre(offre4);
+        activites6.setNomOffre(offre4);
 
         Employes employe1 = new Employes("Yang", "password", TypeTemps.TEMP_PARTIEL);
         Employes employe2 = new Employes("Nour", "password", TypeTemps.TEMP_PLEIN);

@@ -12,12 +12,12 @@ public class ChoseAFaireDAO extends DAO<Activites> {
     }
 
 
-    public String getAllChoseAFaier(int idOffre){
+    public String getAllChoseAFaier(String destination){
         List<String> chosesAFaire;
         try{
             Query query = entityManager.createQuery("SELECT chosesAFaire.nomChose FROM ChoseAFaire chosesAFaire " +
-                    "WHERE chosesAFaire.idOffre=:idOffre");
-            query.setParameter("idOffre", idOffre);
+                    "WHERE chosesAFaire.destination=:destination");
+            query.setParameter("destination", destination);
             chosesAFaire = query.getResultList();
             return String.join("," , chosesAFaire);
         }catch (Exception e){
