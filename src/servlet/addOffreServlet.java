@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "addOffreServlet",urlPatterns = "/addOffre")
@@ -22,7 +23,7 @@ public class addOffreServlet extends HttpServlet {
         OffreDAO offreDAO = new OffreDAO(em);
         String lieu = request.getParameter("lieu");
         String desription = request.getParameter("description");
-
+        HttpSession session = request.getSession();
         int tarif = Integer.parseInt(request.getParameter("tarif")==""?"0":request.getParameter("tarif"));
         int nbPlace = Integer.parseInt(request.getParameter("nbPlace")==""?"0":request.getParameter("nbPlace"));
         String[] choses = request.getParameterValues("Chosesfields[]");
@@ -37,21 +38,12 @@ public class addOffreServlet extends HttpServlet {
              succes = offreDAO.add(lieu,desription,tarif,nbPlace,choses,activites);
         }
         if (succes){
-            request.setAttribute("alert",null);
-            response.sendRedirect("Accueil");
-            return;
+            session.setAttribute("addOffreAlert",null);
+        }else if (parameterError){
+            session.setAttribute("addOffreAlert","il y a au moin un field qui est vide");
         }
-
-        if (parameterError){
-            request.setAttribute("alert","il y a au moin un field qui est vide");
-        }
-        else request.setAttribute("alert","Inserer une offre rencontre une erreur");
-
-        RequestDispatcher disp;
-        disp = request.getRequestDispatcher("accueil.jsp");
-        disp.forward(request, response);
-
-
+        else session.setAttribute("addOffreAlert","Inserer une offre rencontre une erreur");
+        response.sendRedirect("Accueil");
 
 
     }

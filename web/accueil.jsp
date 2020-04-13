@@ -49,6 +49,7 @@
           <th> Destination </th>
           <th> Tarif (en €) </th>
           <th> Description </th>
+          <th> Nombre de place</th>
           <th>  </th>
           <th>  </th>
         </tr>
@@ -59,6 +60,7 @@
         <td>${offre.nomDestination}</td>
         <td>${offre.tarif}</td>
         <td>${offre.description}</td>
+        <td>${offre.nbPlaces}</td>
         <td>
           <a data-toggle="modal"   href="" data-target="#modalInfos_${offre.idOffre}" >Infos</a>
 
@@ -103,7 +105,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
                 </div>
 
 
@@ -122,7 +123,7 @@
       <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>
   </c:choose>
-  <c:if test="${requestScope.alert!=null}">
+  <c:if test="${sessionScope.addOffreAlert!=null}">
    <script>
      $('#modal').modal("show");
    </script>
@@ -140,9 +141,7 @@
       $('#modal').modal("show");
     });
   });
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+
 
 
 </script>
