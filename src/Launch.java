@@ -1,4 +1,3 @@
-import dao.ActivitesDAO;
 import model.*;
 
 import javax.persistence.EntityManager;
@@ -19,7 +18,7 @@ public class Launch {
         //System.out.println(activitesDAO.getAllActivites("Portugal"));
         /*Offre offre1 = new Offre(100, 300, "Portugal", "Pays Européen");
         Offre offre2 = new Offre(150, 250, "Italie", "Pays Européen");
-        Offre offre3 = new Offre(150, 400, "États Unis", "Pays Américain");
+        Offre offre3 = new Offre(150, 400, "États-Unis", "Pays Américain");
         Offre offre4 = new Offre(100, 500, "Thailand", "Pays Asiatique");
 
 

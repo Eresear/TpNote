@@ -1,11 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
 
-  body {
-    font-family: 'Raleway', sans-serif;
-  }
-</style>
 
 <html>
   <head>
@@ -19,6 +14,14 @@
 <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">--%>
 
   </head>
+
+  <style>
+
+    body {
+      font-family: 'Raleway', sans-serif;
+    }
+
+  </style>
 
   <body>
 
@@ -103,7 +106,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Understood</button>
                 </div>
 
 
