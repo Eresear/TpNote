@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "SiginFilter")
+@WebFilter(filterName = "SiginFilter",urlPatterns = "/addOffre.jsp")
 public class SiginFilter implements Filter {
     private ServletContext ctx;
     public void destroy() {

@@ -13,6 +13,9 @@ public class Reservation {
     private int idReservation;
     private String nomClient;
     private int prix;
+    private int enfants;
+    private int etudiants;
+    private int normaux;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Offre offre;

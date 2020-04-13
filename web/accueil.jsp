@@ -1,19 +1,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
+</style>
 
 <html>
   <head>
     <title>Accueil</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">"
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>--%>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
+<%--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--%>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
   </head>
-  <style>
 
-    body {
-      font-family: 'Raleway', sans-serif;
-    }
-  </style>
   <body>
 
   <div class="row">
@@ -48,21 +54,65 @@
         </tr>
       </thead>
       <!-- Table contenant les livres-->
-      <c:forEach items = "${listOffres}" var="offre">
+      <c:forEach items = "${listOffres}" var="offre" >
       <tr>
         <td>${offre.nomDestination}</td>
         <td>${offre.tarif}</td>
         <td>${offre.description}</td>
         <td>
-          <a href='offre=${offre.idOffre}'>Infos</a>
+          <a data-toggle="modal"   href="" data-target="#modalInfos_${offre.idOffre}" >Infos</a>
+
         </td>
         <td>
-          <a href="?op=reserver&id=${offres.id}">Réserver</a>
+          <a href="?op=reserver&id=${offre.idOffre}">Réserver</a>
         </td>
       </tr>
+
+
       </c:forEach>
     </table>
+
   </div>
+
+      <c:forEach items="${listOffres}" var="offre">
+
+          <div class="modal fade" tabindex="-1" role="dialog" id="modalInfos_${offre.idOffre}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Détails sur l'offre</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">Activites</li>
+                      <c:forEach items="${offre.activitesList}" var="activite" >
+                        <li class="list-group-item">${activite.nomActivite}</li>
+                      </c:forEach>
+
+                    <li class="list-group-item list-group-item-primary">Chose à faire</li>
+                      <c:forEach items="${offre.choseAFaireList}" var="chose" >
+                        <li class="list-group-item"> ${chose.nomChose}</li>
+                      </c:forEach>
+
+                  </ul>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+      </c:forEach>
 
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
@@ -90,4 +140,9 @@
       $('#modal').modal("show");
     });
   });
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+
+
 </script>
