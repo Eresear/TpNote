@@ -60,11 +60,11 @@
         <td>${offre.tarif}</td>
         <td>${offre.description}</td>
         <td>
-          <a data-toggle="modal"   href="" data-target="#modalInfos_${offre.idOffre}" >Infos</a>
+          <a data-toggle="modal"   href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
 
         </td>
         <td>
-          <a href="?op=reserver&id=${offre.idOffre}">Réserver</a>
+          <a href="?op=reserver&id=${offre}">Réserver</a>
         </td>
       </tr>
 
@@ -76,7 +76,7 @@
 
       <c:forEach items="${listOffres}" var="offre">
 
-          <div class="modal fade" tabindex="-1" role="dialog" id="modalInfos_${offre.idOffre}">
+          <div class="modal fade" tabindex="-1" role="dialog" id="modalInfos_${offre.nomDestination}">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <!-- Modal Header -->
