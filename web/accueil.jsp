@@ -1,11 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
 
-  body {
-    font-family: 'Raleway', sans-serif;
-  }
-</style>
 
 <html>
   <head>
@@ -19,6 +14,14 @@
 <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">--%>
 
   </head>
+
+  <style>
+
+    body {
+      font-family: 'Raleway', sans-serif;
+    }
+
+  </style>
 
   <body>
 
@@ -62,11 +65,10 @@
         <td>${offre.description}</td>
         <td>${offre.nbPlaces}</td>
         <td>
-          <a data-toggle="modal"   href="" data-target="#modalInfos_${offre.idOffre}" >Infos</a>
-
+          <a data-toggle="modal" href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
         </td>
         <td>
-          <a href="?op=reserver&id=${offre.idOffre}">Réserver</a>
+          <a href="${pageContext.request.contextPath}/reservation?pays=${offre.nomDestination}">Réserver</a>
         </td>
       </tr>
 
@@ -78,7 +80,7 @@
 
       <c:forEach items="${listOffres}" var="offre">
 
-          <div class="modal fade" tabindex="-1" role="dialog" id="modalInfos_${offre.idOffre}">
+          <div class="modal fade" tabindex="-1" role="dialog" id="modalInfos_${offre.nomDestination}">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <!-- Modal Header -->
@@ -111,14 +113,12 @@
               </div>
             </div>
           </div>
-
-
       </c:forEach>
 
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
       <div class="row justify-content-center">
-          <button formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
+          <button style="background-color: darkmagenta" formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
       </div>
       <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>

@@ -15,8 +15,6 @@ public class OffreDAO extends DAO<Offre> {
         super(entityManager);
     }
 
-
-
     public List<Offre> getAllOffers(){
         List<Offre> livres;
         try{
@@ -28,7 +26,9 @@ public class OffreDAO extends DAO<Offre> {
         }
         return null;
     }
-    public boolean  add(String lieu,String description,int tarif,int nbPlace,String[] choses,String[] activites ){
+
+
+    public boolean add(String lieu,String description,int tarif,int nbPlace,String[] choses,String[] activites ){
 
         try{
             entityManager.getTransaction().begin();
@@ -43,7 +43,7 @@ public class OffreDAO extends DAO<Offre> {
             for (String activite :
                     activites) {
                 Activites a = new Activites(activite);
-                a.setIdOffre(offre);
+                a.setNomOffre(offre);
                 activitesList.add(a);
             }
 

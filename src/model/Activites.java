@@ -6,12 +6,12 @@ import javax.persistence.*;
 public class Activites {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idActivite;
     private String nomActivite;
 
     @ManyToOne()
-    private Offre idOffre;
+    private Offre destination;
 
     public Activites(){
 
@@ -30,15 +30,15 @@ public class Activites {
         return nomActivite;
     }
 
-    public Offre getIdOffre() {
-        return idOffre;
+    public Offre getNomOffre() {
+        return destination;
     }
 
     public void setNomActivite(String nomActivite) {
         this.nomActivite = nomActivite;
     }
 
-    public void setIdOffre(Offre idOffre) {
-        this.idOffre = idOffre;
+    public void setNomOffre(Offre destination) {
+        this.destination = destination;
     }
 }

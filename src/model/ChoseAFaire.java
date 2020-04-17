@@ -6,28 +6,28 @@ import javax.persistence.*;
 public class ChoseAFaire {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idChose;
     private String nomChose;
 
     @ManyToOne()
-    private Offre idOffre;
+    private Offre destination;
 
 
     public ChoseAFaire(){
 
     }
 
-    public ChoseAFaire(String nomChose, Offre idOffre) {
+    public ChoseAFaire(String nomChose, Offre destination) {
         this.nomChose = nomChose;
-        this.idOffre = idOffre;
+        this.destination = destination;
     }
     public  ChoseAFaire(String nomChose){
         this.nomChose = nomChose;
     }
 
-    public Offre getIdOffre() {
-        return idOffre;
+    public Offre getNomOffre() {
+        return destination;
     }
 
     public int getIdChose() {
@@ -39,7 +39,7 @@ public class ChoseAFaire {
     }
 
     public void setIdOffre(Offre idOffre) {
-        this.idOffre = idOffre;
+        this.destination = idOffre;
     }
 
     public void setNomChose(String nomChose) {
