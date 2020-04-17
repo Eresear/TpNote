@@ -41,38 +41,31 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Inserer une offre</h5>
-                            <c:choose>
-                                <c:when test="${requestScope.alert!=null}">
-                                    <p class="alert alert-danger">${requestScope.alert} </p>
-                                </c:when>
-                                <c:otherwise>
-                                    <p></p>
-                                </c:otherwise>
-                            </c:choose>
-
+                        <c:choose>
+                            <c:when test="${requestScope.alert!=null}">
+                                <p class="alert alert-danger">${requestScope.alert} </p>
+                            </c:when>
+                            <c:otherwise>
+                                <p></p>
+                            </c:otherwise>
+                        </c:choose>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
-                        <div class="input-group mb-3">
-                            <input style="margin-bottom: 10px;min-width: auto;" class="form-control" type="text" name="lieu" placeholder="Lieu de destination" style="min-width: 100%">
-                        </div>
-                        <div class="input-group mb-3 ">
-                            <textarea placeholder= "Description" name="description" style="min-width: 100%" ></textarea>
-                        </div>
-                        <div class="input-group mb-3">
-                                <input style="margin-top: 10px" style="margin-bottom: 10px;" class="form-control" type="number" name="tarif" placeholder="Tarif" >
-
-                                <input style="margin-top: 10px" style="margin-bottom: 10px;" class="form-control"  type="number" name="nbPlace" placeholder="Nombre de place" >
-
-                        </div>
-
-
+                    <div class="input-group mb-3">
+                        <input style="margin-bottom: 10px;min-width: auto;" class="form-control" type="text" name="lieu" placeholder="Lieu de destination" style="min-width: 100%">
+                    </div>
+                    <div class="input-group mb-3 ">
+                        <textarea placeholder= "Description" name="description" style="min-width: 100%" ></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input style="margin-top: 10px" style="margin-bottom: 10px;" class="form-control" type="number" name="tarif" placeholder="Tarif" >
+                        <input style="margin-top: 10px" style="margin-bottom: 10px;" class="form-control"  type="number" name="nbPlace" placeholder="Nombre de place" >
+                    </div>
                     <div class="control-group" id="Chosesfields">
                         <div class="controls">
-
                             <div  autocomplete="off">
                                 <div class="entry input-group col-xs-3">
                                     <input style="margin-bottom: 10px" class="form-control" name="Chosesfields[]" type="text" placeholder="Choses à faire" />
@@ -83,15 +76,11 @@
                                     </span>
                                 </div>
                             </div>
-
-
                             <br>
                         </div>
                     </div>
-
                     <div class="control-group" id="Activitefields">
                         <div class="controls">
-
                             <div autocomplete="off">
                                 <div class="entry input-group col-xs-3">
                                     <input style="margin-bottom: 10px" class="form-control" name="Activitefields[]" type="text" placeholder="Les activités possible" />
@@ -102,30 +91,13 @@
                                     </span>
                                 </div>
                             </div>
-
-
                             <br>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
                 <div class="modal-footer">
-
-
-                        <button style="margin-bottom: 10px" type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
-
-
-
-
-
-
-                        <button  style="margin-bottom: 10px"  type="submit" class="btn btn-primary" >Save changes</button>
-
-
+                    <button style="margin-bottom: 10px" type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+                    <button style="background-color: darkmagenta ; margin-bottom: 10px"  type="submit" class="btn btn-primary" >Save changes</button>
                 </div>
             </div>
         </div>

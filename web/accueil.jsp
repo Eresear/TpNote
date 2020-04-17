@@ -63,11 +63,10 @@
         <td>${offre.tarif}</td>
         <td>${offre.description}</td>
         <td>
-          <a data-toggle="modal"   href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
-
+          <a data-toggle="modal" href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
         </td>
         <td>
-          <a href="?op=reserver&id=${offre}">Réserver</a>
+          <a href="${pageContext.request.contextPath}/reservation?pays=${offre.nomDestination}">Réserver</a>
         </td>
       </tr>
 
@@ -112,14 +111,12 @@
               </div>
             </div>
           </div>
-
-
       </c:forEach>
 
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
       <div class="row justify-content-center">
-          <button formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
+          <button style="background-color: darkmagenta" formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
       </div>
       <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>

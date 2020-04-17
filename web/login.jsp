@@ -36,7 +36,7 @@
         <label for="inputPassword" class="sr-only">Password</label>
 
         <input style= "margin-bottom: 10px" type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required/>
-        <button type="submit" class="btn btn-primary">Se connecter</button>
+        <button  style="background-color: darkmagenta" type="submit" class="btn btn-primary">Se connecter</button>
     </form>
 
 </body>
