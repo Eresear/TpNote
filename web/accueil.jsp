@@ -68,7 +68,7 @@
           <a data-toggle="modal" href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
         </td>
         <td>
-          <a href="${pageContext.request.contextPath}/reservation?pays=${offre.nomDestination}">Réserver</a>
+          <a href="${pageContext.request.contextPath}/reservation?pays=${offre.nomDestination}&tarif=${offre.tarif}&idOffre=${offre.idOffre}">Réserver</a>
         </td>
       </tr>
 

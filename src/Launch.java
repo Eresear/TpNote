@@ -13,10 +13,8 @@ public class Launch {
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        //ActivitesDAO activitesDAO = new ActivitesDAO(entityManager);
 
-        //System.out.println(activitesDAO.getAllActivites("Portugal"));
-        /*Offre offre1 = new Offre(100, 300, "Portugal", "Pays Européen");
+        Offre offre1 = new Offre(100, 300, "Portugal", "Pays Européen");
         Offre offre2 = new Offre(150, 250, "Italie", "Pays Européen");
         Offre offre3 = new Offre(150, 400, "États-Unis", "Pays Américain");
         Offre offre4 = new Offre(100, 500, "Thailand", "Pays Asiatique");
@@ -84,7 +82,7 @@ public class Launch {
         entityManager.persist(activites6);
         entityManager.persist(employe1);
         entityManager.persist(employe2);
-        entityManager.getTransaction().commit();*/
+        entityManager.getTransaction().commit();
 
     }
 }

@@ -42,8 +42,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Inserer une offre</h5>
                         <c:choose>
-                            <c:when test="${requestScope.alert!=null}">
-                                <p class="alert alert-danger">${requestScope.alert} </p>
+                            <c:when test="${sessionScope.addOffreAlert!=null}">
+                                <p class="alert alert-danger">${sessionScope.addOffreAlert} </p>
                             </c:when>
                             <c:otherwise>
                                 <p></p>
@@ -131,9 +131,6 @@
             return false;
         });
 
-        // $(document).on('click','#close',function (e) {
-        //    e.preventDefault();
-        // });
 
     });
 

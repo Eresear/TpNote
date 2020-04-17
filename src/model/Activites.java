@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Activites {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idActivite;
     private String nomActivite;
 

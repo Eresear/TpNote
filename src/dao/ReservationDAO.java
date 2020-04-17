@@ -11,31 +11,17 @@ public class ReservationDAO extends DAO<Reservation> {
         super(entityManager);
     }
 
-    public boolean reserverOffre(String destination, String name, int nbEnfants, int nbEtudiants, int nbNormaux){
-        Offre offre = entityManager.find(Offre.class, destination);
-        int prixOffre = offre.getTarif();
-        double prixEnfant = 0;
-        double prixEtudiant = 0;
+    public boolean reserverOffre(int idOffre, String name, int nbEnfants, int nbEtudiants, int nbNormaux,double prixTotal){
+        entityManager.getTransaction().begin();
+        Offre offre = entityManager.find(Offre.class, idOffre);
+        int disponible =offre.getNbPlaces() -(nbNormaux+nbEnfants+nbEtudiants)  ;
+        offre.setNbPlaces(disponible);
 
-        Reservation reservation = new Reservation();
+        Reservation reservation = new Reservation(name,nbEnfants,nbEtudiants,nbNormaux,prixTotal);
         reservation.setDestination(offre);
-        reservation.setEnfants(nbEnfants);
-        reservation.setEtudiants(nbEtudiants);
-        reservation.setNormaux(nbNormaux);
-        reservation.setNomClient(name);
-
-        if(nbEnfants != 0){
-             prixEnfant = prixOffre/0.3;
-        }
-        if(nbEtudiants != 0){
-             prixEtudiant = prixOffre/0.5;
-        }
-
-        double prixTotal = prixOffre + prixEnfant + prixEtudiant;
-
-        reservation.setPrix(prixTotal);
 
         entityManager.persist(reservation);
-        return false;
+        entityManager.getTransaction().commit();
+        return true;
     }
 }

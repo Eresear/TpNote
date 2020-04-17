@@ -26,7 +26,9 @@ public class OffreDAO extends DAO<Offre> {
         }
         return null;
     }
-
+    public  Offre getOffreById(int id){
+        return entityManager.find(Offre.class,id);
+    }
 
     public boolean add(String lieu,String description,int tarif,int nbPlace,String[] choses,String[] activites ){
 
