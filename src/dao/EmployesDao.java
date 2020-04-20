@@ -1,13 +1,28 @@
 package dao;
 
 import model.Employes;
+import model.Reservation;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 public class EmployesDao extends DAO<Employes> {
 
     public EmployesDao(EntityManager entityManager){
         super(entityManager);
+    }
+
+    public List<Employes> getAllEmployes(){
+        List<Employes> employes;
+        try{
+            TypedQuery<Employes> query = entityManager.createQuery("SELECT employe FROM Employes employe", Employes.class);
+            employes = query.getResultList();
+            return employes;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

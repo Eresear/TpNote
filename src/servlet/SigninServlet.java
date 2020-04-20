@@ -29,6 +29,7 @@ public class SigninServlet extends HttpServlet {
         String pass = request.getParameter("password");
         EmployesDao employesDao = new EmployesDao(entityManager);
         if ( username!=null && pass != null && employesDao.checkLogin(username,pass) ) {
+            request.getSession().setAttribute("userConnected", new Employes(username, pass));
             session.setAttribute("authenticated", "yes");
             response.sendRedirect("Accueil");
         } else {

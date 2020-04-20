@@ -7,11 +7,9 @@
     <title>Accueil</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
-<%--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--%>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">--%>
 
   </head>
 
@@ -38,6 +36,7 @@
       </c:when>
       <c:when test="${sessionScope.authenticated=='yes'}">
         <div class="col-lg-2">
+          <h8 class="text left" style="color: black"> Bienvenue : ${sessionScope.userConnected.username}</h8>
           <h3 style="margin-left: 0px"><a href="${pageContext.request.contextPath}/logout">Se déconnecter</a></h3>
         </div>
       </c:when>
@@ -57,7 +56,7 @@
           <th>  </th>
         </tr>
       </thead>
-      <!-- Table contenant les livres-->
+      <!-- Table contenant les offres-->
       <c:forEach items = "${listOffres}" var="offre" >
       <tr>
         <td>${offre.nomDestination}</td>
@@ -68,7 +67,7 @@
           <a data-toggle="modal" href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
         </td>
         <td>
-          <a href="${pageContext.request.contextPath}/reservation?pays=${offre.nomDestination}&tarif=${offre.tarif}&idOffre=${offre.idOffre}">Réserver</a>
+          <a href="${pageContext.request.contextPath}/reservation?pays=${offre.nomDestination}&tarif=${offre.tarif}">Réserver</a>
         </td>
       </tr>
 
@@ -118,7 +117,11 @@
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
       <div class="row justify-content-center">
-          <button style="background-color: darkmagenta" formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
+        <button style="background-color: darkmagenta; margin-right: 20px" formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
+
+        <a href='${pageContext.request.contextPath}/espaceAgence'>
+          <button style="background-color: darkmagenta;" formaction="" class="btn btn-primary" >Espace agence</button>
+        </a>
       </div>
       <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>

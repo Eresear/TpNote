@@ -40,9 +40,9 @@ public class addOffreServlet extends HttpServlet {
         if (succes){
             session.setAttribute("addOffreAlert",null);
         }else if (parameterError){
-            session.setAttribute("addOffreAlert","il y a au moin un field qui est vide");
+            session.setAttribute("addOffreAlert","il y a au moins un field qui est vide");
         }
-        else session.setAttribute("addOffreAlert","Inserer une offre rencontre une erreur");
+        else session.setAttribute("addOffreAlert","L'insertion de l'offre rencontre une erreur");
         response.sendRedirect("Accueil");
 
 

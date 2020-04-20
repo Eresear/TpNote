@@ -6,11 +6,11 @@ import javax.persistence.*;
 public class Activites {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idActivite;
     private String nomActivite;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     private Offre destination;
 
     public Activites(){

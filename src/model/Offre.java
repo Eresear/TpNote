@@ -7,11 +7,7 @@ import java.util.List;
 @Entity
 public class Offre {
 
-
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private  int idOffre;
     private String nomDestination;
     private int nbPlaces;
     private int tarif;
@@ -35,13 +31,6 @@ public class Offre {
         this.description = description;
     }
 
-    public int getIdOffre() {
-        return idOffre;
-    }
-
-    public void setIdOffre(int idOffre) {
-        this.idOffre = idOffre;
-    }
 
     public void setNomDestination(String nomDestination) {
         this.nomDestination = nomDestination;

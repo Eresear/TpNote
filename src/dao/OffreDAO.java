@@ -5,6 +5,7 @@ import model.ChoseAFaire;
 import model.Offre;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +17,27 @@ public class OffreDAO extends DAO<Offre> {
     }
 
     public List<Offre> getAllOffers(){
-        List<Offre> livres;
+        List<Offre> offres;
         try{
             TypedQuery<Offre> query = entityManager.createQuery("SELECT offre FROM Offre offre", Offre.class);
-            livres = query.getResultList();
-            return livres;
+            offres = query.getResultList();
+            return offres;
         }catch (Exception e){
             e.printStackTrace();
         }
         return null;
     }
-    public  Offre getOffreById(int id){
-        return entityManager.find(Offre.class,id);
+    public  Offre getOffreByDestination(String destination){
+        try{
+           return entityManager.createQuery("SELECT offre FROM Offre offre WHERE offre.nomDestination=: nomDestination",Offre.class)
+                   .setParameter("nomDestination",destination)
+                   .getSingleResult();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
     }
 
     public boolean add(String lieu,String description,int tarif,int nbPlace,String[] choses,String[] activites ){
@@ -39,7 +49,7 @@ public class OffreDAO extends DAO<Offre> {
             List<Activites> activitesList = new ArrayList<Activites>();
             for (String chose:choses ) {
                 ChoseAFaire c = new ChoseAFaire(chose);
-                c.setIdOffre(offre);
+                c.setNomOffre(offre);
                 choseAFaireList.add(c);
             }
             for (String activite :
