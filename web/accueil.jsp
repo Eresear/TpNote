@@ -37,6 +37,12 @@
           </button>
         </div>
       </c:if>
+      <c:if test="${sessionScope.ajouterOffreConfirmation !=null}">
+        <div class="alert alert-success alert-dismissible fade show">
+          <strong>Success!</strong> Your message has been sent successfully.
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      </c:if>
     </div>
 
     <c:choose>
@@ -151,14 +157,4 @@
   </body>
 </html>
 
-<script type="text/javascript">
-  $(function () {
-    $(document).on('click', '#addButton', function(e)
-    {
-      $('#modal').modal("show");
-    });
-  });
 
-
-
-</script>

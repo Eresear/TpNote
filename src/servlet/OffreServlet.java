@@ -19,13 +19,17 @@ import java.util.List;
 public class OffreServlet extends HttpServlet {
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
-    private EntityManager em = entityManagerFactory.createEntityManager();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+         EntityManager em = entityManagerFactory.createEntityManager();
         OffreDAO offreDAO = new OffreDAO(em);
         List<Offre> listOffres = offreDAO.getAllOffers();
+        for (Offre off: listOffres
+             ) {
+            System.out.println("offre nom " + off.getNomDestination() + "nb place " + off.getNbPlaces());
+        }
         req.setAttribute("listOffres", listOffres);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("accueil.jsp");

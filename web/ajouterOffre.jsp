@@ -51,25 +51,25 @@
         </c:choose>
         <div >
             <label for="lieu">Lieu de destination :</label>
-            <input style="margin-bottom: 10px;min-width: auto;" id="lieu" class="form-control" type="text" name="lieu"  style="min-width: 100%">
+            <input style="margin-bottom: 10px;min-width: auto;" id="lieu" class="form-control" type="text" name="lieu"  value="" style="min-width: 100%">
         </div>
         <div>
             <label for="description">Description :</label>
             <br>
-            <textarea style="margin-bottom: 10px" id="description" name="description" style="min-width: 150%" ></textarea>
+            <textarea style="margin-bottom: 10px" id="description" name="description" value="" style="min-width: 150%" ></textarea>
         </div>
         <div>
             <label for="tarif">Tarif (en €) :</label>
-            <input style="margin-bottom: 10px" class="form-control" type="number" id="tarif">
+            <input style="margin-bottom: 10px" class="form-control" type="number" id="tarif" value="0"name="tarif">
             <label for="nbPlace">Nombre de places :</label>
-            <input style="margin-bottom: 10px" class="form-control"  type="number" id="nbPlace">
+            <input style="margin-bottom: 10px" class="form-control"  type="number" id="nbPlace" name="nbPlace">
         </div>
         <div class="control-group" id="Chosesfields">
             <div class="controls">
                 <div  autocomplete="off">
                     <label for="Chosesfields[]">Choses à faire :</label>
                     <div class="entry input-group col-xs-3">
-                        <input style="margin-bottom: 10px" class="form-control" id="Chosesfields[]" type="text"/>
+                        <input style="margin-bottom: 10px" class="form-control" id="Chosesfields[]" name="Chosesfields[]" type="text"/>
                             <span class="input-group-btn">
                             <button style="margin-bottom: 10px" class="btn btn-success btn-chose-add "  type="button">
                             <i class="fas fa-plus"></i>
@@ -85,7 +85,7 @@
                 <div autocomplete="off">
                     <label for="Activitefields[]">Activités :</label>
                     <div class="entry input-group col-xs-3">
-                        <input style="margin-bottom: 10px" class="form-control" id="Activitefields[]" type="text"/>
+                        <input style="margin-bottom: 10px" class="form-control" id="Activitefields[]" name="Activitefields[]" type="text"/>
                         <span class="input-group-btn">
                         <button style="margin-bottom: 10px" class="btn btn-success btn-act-add " type="button">
                         <i class="fas fa-plus"></i>
@@ -100,10 +100,7 @@
             <button style="background-color: darkmagenta ; margin-bottom: 10px"  type="submit" class="btn btn-primary" >Ajouter l'offre</button>
         </div>
     </div>
-    <div class="alert alert-success alert-dismissible fade show">
-        <strong>Success!</strong> Your message has been sent successfully.
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
+
 </form>
 
 </html>

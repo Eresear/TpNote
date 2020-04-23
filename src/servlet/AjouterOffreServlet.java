@@ -24,6 +24,7 @@ public class AjouterOffreServlet extends HttpServlet {
         String lieu = request.getParameter("lieu");
         String desription = request.getParameter("description");
         HttpSession session = request.getSession();
+        session.setAttribute("ajouterOffreConfirmation",null);
         String[] choses = request.getParameterValues("Chosesfields[]");
         String[] activites = request.getParameterValues("Activitefields[]");
 
@@ -40,12 +41,15 @@ public class AjouterOffreServlet extends HttpServlet {
              succes = offreDAO.add(lieu,desription,tarif,nbPlace,choses,activites);
         }
         if (succes){
-            session.setAttribute("addOffreAlert","null");
+            session.setAttribute("addOffreAlert",null);
+            session.setAttribute("ajouterOffreConfirmation","yes");
+            response.sendRedirect("Accueil");
+            return;
         }else if (parameterError){
             session.setAttribute("addOffreAlert","il y a au moins un field qui est vide");
         }
         else session.setAttribute("addOffreAlert","L'insertion de l'offre rencontre une erreur");
-        response.sendRedirect("Accueil");
+        response.sendRedirect("ajouterOffre");
 
 
     }
