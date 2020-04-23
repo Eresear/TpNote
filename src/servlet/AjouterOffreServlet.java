@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "addOffreServlet",urlPatterns = "/addOffre")
-public class addOffreServlet extends HttpServlet {
+@WebServlet(name = "ajouterOffreServlet",urlPatterns = "/ajouterOffre")
+public class AjouterOffreServlet extends HttpServlet {
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
     private EntityManager em = entityManagerFactory.createEntityManager();
@@ -24,10 +24,12 @@ public class addOffreServlet extends HttpServlet {
         String lieu = request.getParameter("lieu");
         String desription = request.getParameter("description");
         HttpSession session = request.getSession();
-        int tarif = Integer.parseInt(request.getParameter("tarif")==""?"0":request.getParameter("tarif"));
-        int nbPlace = Integer.parseInt(request.getParameter("nbPlace")==""?"0":request.getParameter("nbPlace"));
         String[] choses = request.getParameterValues("Chosesfields[]");
         String[] activites = request.getParameterValues("Activitefields[]");
+
+        int tarif = Integer.parseInt(request.getParameter("tarif"));
+        int nbPlace = Integer.parseInt(request.getParameter("nbPlace")==""?"0":request.getParameter("nbPlace"));
+
         boolean parameterError =false;
         boolean succes =false;
         if (lieu==null || desription==null|| nbPlace==0 || tarif==0|| nbPlace==0||choses ==null ||choses[0]==null
@@ -38,7 +40,7 @@ public class addOffreServlet extends HttpServlet {
              succes = offreDAO.add(lieu,desription,tarif,nbPlace,choses,activites);
         }
         if (succes){
-            session.setAttribute("addOffreAlert",null);
+            session.setAttribute("addOffreAlert","null");
         }else if (parameterError){
             session.setAttribute("addOffreAlert","il y a au moins un field qui est vide");
         }
@@ -49,8 +51,9 @@ public class addOffreServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+        RequestDispatcher disp;
+        disp = request.getRequestDispatcher("ajouterOffre.jsp");
+        disp.forward(request, response);
 
     }
 }

@@ -25,7 +25,7 @@
 
     <h8>Vous pouvez vous connecter uniquement si vous êtes un employé</h8>
 
-    <form class="form-signin" action="login" method="post"
+    <form class="form-signin" action="connexion" method="post"
           style="text-align: center;width: 100%;max-width: 330px;padding: 15px;margin: auto;position: relative;">
         <label >
             <%=request.getAttribute("msg") !=null ?request.getAttribute("msg") :" "%>

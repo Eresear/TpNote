@@ -45,7 +45,7 @@
 
             <label for="name">Nom et prénom:</label>
             <input style="margin-bottom: 10px" type="text" class="form-control" id="name" name="name">
-            <label for="nbAdultes">Nombre voyageurs:</label>
+            <label for="nbAdultes">Nombre voyageurs adultes:</label>
             <input style="margin-bottom: 10px" id="nbAdultes" type="number" name="nbAdultes" value="0" min="0" max="10" step="1" onchange="calcul();"/>
             <label for="nbEtudiants">Nombre Étudiants (18-25 ans):</label>
             <input style="margin-bottom: 10px" id="nbEtudiants" name="nbEtudiants" type="number" value="0" min="0" max="10" step="1" onchange="calcul();"/>

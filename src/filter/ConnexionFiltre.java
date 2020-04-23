@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "SiginFilter",urlPatterns = "/addOffre.jsp")
-public class SiginFilter implements Filter {
+@WebFilter(filterName = "SiginFilter",urlPatterns ={"/ajouterOffre.jsp"})
+public class ConnexionFiltre implements Filter {
     private ServletContext ctx;
     public void destroy() {
     }
@@ -21,7 +21,7 @@ public class SiginFilter implements Filter {
         if ("yes".equals(auth))
             chain.doFilter(req, resp);
         else
-            httpResponse.sendRedirect(ctx.getContextPath() + "/login.jsp");
+            httpResponse.sendRedirect(ctx.getContextPath() + "/connexion.jsp");
 
     }
 

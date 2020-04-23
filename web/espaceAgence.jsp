@@ -30,6 +30,9 @@
         <div class="col">
             <h1 style="color: darkmagenta">Réservations</h1>
         </div>
+        <div class="col-lg-2">
+            <h4 style="margin-left: 5px"><a href="${pageContext.request.contextPath}/Accueil">Retour à l'accueil</a></h4>
+        </div>
     </div>
 
     <div style="margin-top: 5%" class="container text-center">

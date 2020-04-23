@@ -1,7 +1,6 @@
 package servlet;
 
-import dao.DAO;
-import dao.EmployesDao;
+import dao.EmployesDAO;
 import model.Employes;
 
 import javax.persistence.EntityManager;
@@ -16,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "SigninServlet" ,urlPatterns = "/login")
-public class SigninServlet extends HttpServlet {
+@WebServlet(name = "SigninServlet" ,urlPatterns = "/connexion")
+public class ConnexionServlet extends HttpServlet {
     EntityManagerFactory entityManagerFactory =
             Persistence.createEntityManagerFactory("test");
 
@@ -27,7 +26,7 @@ public class SigninServlet extends HttpServlet {
         RequestDispatcher disp;
         String username = request.getParameter("username");
         String pass = request.getParameter("password");
-        EmployesDao employesDao = new EmployesDao(entityManager);
+        EmployesDAO employesDao = new EmployesDAO(entityManager);
         if ( username!=null && pass != null && employesDao.checkLogin(username,pass) ) {
             request.getSession().setAttribute("userConnected", new Employes(username, pass));
             session.setAttribute("authenticated", "yes");
@@ -35,7 +34,7 @@ public class SigninServlet extends HttpServlet {
         } else {
             //session.setAttribute("authenticated", "no");
             request.setAttribute("msg","Username or password not correct");
-            disp = request.getRequestDispatcher("/login.jsp");
+            disp = request.getRequestDispatcher("/connexion.jsp");
             disp.forward(request, response);
         }
     }

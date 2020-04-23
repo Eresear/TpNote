@@ -7,9 +7,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class EmployesDao extends DAO<Employes> {
+public class EmployesDAO extends DAO<Employes> {
 
-    public EmployesDao(EntityManager entityManager){
+    public EmployesDAO(EntityManager entityManager){
         super(entityManager);
     }
 

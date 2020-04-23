@@ -27,8 +27,17 @@ public class OffreServlet extends HttpServlet {
         OffreDAO offreDAO = new OffreDAO(em);
         List<Offre> listOffres = offreDAO.getAllOffers();
         req.setAttribute("listOffres", listOffres);
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("accueil.jsp");
-        dispatcher.forward(req, resp);
+        String confirmation = req.getParameter("confirmation");
+
+        if(confirmation!=null) {
+            req.setAttribute("confirmation", confirmation);
+            dispatcher.forward(req, resp);
+        }
+        else {
+            dispatcher.forward(req, resp);
+        }
 
     }
 

@@ -15,11 +15,11 @@ public class Launch {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 
-        Offre offre1 = new Offre(100, 300, "Lisbonne,Portugal", "Pays Européen");
-        Offre offre2 = new Offre(150, 250, "Rome,Italie", "Pays Européen");
-        Offre offre3 = new Offre(150, 400, "NewYork,Etats-Unis", "Pays Américain");
-        Offre offre4 = new Offre(100, 500, "Bangkok,Thailand", "Pays Asiatique");
-        Offre offre5 = new Offre(100, 300, "Porto,Portugal", "Pays Européen");
+        Offre offre1 = new Offre(100, 300, "Lisbonne", "Pays Européen, ville au Portugal");
+        Offre offre2 = new Offre(150, 250, "Rome", "Pays Européen, ville en Italie");
+        Offre offre3 = new Offre(150, 400, "NewYork", "État Américain, Pays Etats-Unis ");
+        Offre offre4 = new Offre(100, 500, "Bangkok", "Pays Asiatique, ville en Chine");
+        Offre offre5 = new Offre(100, 300, "Porto", "Pays Européen, ville au Portugal");
 
 
 

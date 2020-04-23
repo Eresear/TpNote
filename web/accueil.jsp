@@ -28,19 +28,34 @@
       <h1 style="color: darkmagenta">Offres de voyage</h1>
     </div>
 
+    <div class="col-lg-2">
+      <c:if test="${sessionScope.confirmation!=null}">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Réservation réussite!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </c:if>
+    </div>
+
     <c:choose>
       <c:when test="${sessionScope.authenticated==null}">
         <div class="col-lg-2">
-          <h2 style="margin-left: 5px"><a href="${pageContext.request.contextPath}/login.jsp">Se connecter</a></h2>
+          <h2 style="margin-left: 5px"><a href="${pageContext.request.contextPath}/connexion.jsp">Se connecter</a></h2>
         </div>
       </c:when>
       <c:when test="${sessionScope.authenticated=='yes'}">
         <div class="col-lg-2">
           <h8 class="text left" style="color: black"> Bienvenue : ${sessionScope.userConnected.username}</h8>
-          <h3 style="margin-left: 0px"><a href="${pageContext.request.contextPath}/logout">Se déconnecter</a></h3>
+          <h3 style="margin-left: 0px"><a href="${pageContext.request.contextPath}/deconnexion">Se déconnecter</a></h3>
         </div>
       </c:when>
     </c:choose>
+
+
+
+
 
   </div>
 
@@ -51,7 +66,6 @@
           <th> Destination </th>
           <th> Tarif (en €) </th>
           <th> Description </th>
-          <th> Nombre de place</th>
           <th>  </th>
           <th>  </th>
         </tr>
@@ -62,7 +76,6 @@
         <td>${offre.nomDestination}</td>
         <td>${offre.tarif}</td>
         <td>${offre.description}</td>
-        <td>${offre.nbPlaces}</td>
         <td>
           <a data-toggle="modal" href="" data-target="#modalInfos_${offre.nomDestination}" >Infos</a>
         </td>
@@ -117,20 +130,21 @@
   <c:choose>
     <c:when test="${sessionScope.authenticated=='yes'}">
       <div class="row justify-content-center">
-        <button style="background-color: darkmagenta; margin-right: 20px" formaction="" class="btn btn-primary"  id="addButton">Ajouter Offre</button>
+        <a href='${pageContext.request.contextPath}/ajouterOffre'>
+          <button style="background-color: darkmagenta; margin-right: 20px" formaction="" class="btn btn-primary" >Ajouter Offre</button>
+        </a>
 
         <a href='${pageContext.request.contextPath}/espaceAgence'>
           <button style="background-color: darkmagenta;" formaction="" class="btn btn-primary" >Espace agence</button>
         </a>
       </div>
-      <jsp:include page="addOffre.jsp"></jsp:include>
     </c:when>
   </c:choose>
-  <c:if test="${sessionScope.addOffreAlert!=null}">
+ <%-- <c:if test="${sessionScope.addOffreAlert!=null}">
    <script>
      $('#modal').modal("show");
    </script>
-  </c:if>
+  </c:if> --%>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

@@ -30,7 +30,7 @@ public class ReserverServlet extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("pays",nomDestination);
         session.setAttribute("tarif",tarif);
-        disp = req.getRequestDispatcher("addReservation.jsp");
+        disp = req.getRequestDispatcher("reserver.jsp");
         disp.forward(req, resp);
     }
 
@@ -38,7 +38,7 @@ public class ReserverServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
-        RequestDispatcher disp = req.getRequestDispatcher("addReservation.jsp");
+        RequestDispatcher disp = req.getRequestDispatcher("reserver.jsp");
 
         //Récupération des données
         String nomDestination = (String) session.getAttribute("pays");
@@ -69,10 +69,9 @@ public class ReserverServlet extends HttpServlet {
 
         reservationDAO.reserverOffre(nomDestination, name, nbEnfants, nbEtudiants, nbAdultes,prixTotal);
 
-        session.setAttribute("pays",null);
-        session.setAttribute("tarif",null);
-        session.setAttribute("reserverAlert",null);
 
-        resp.sendRedirect("Accueil");
+        session.setAttribute("confirmation","Réservation réussite!");
+
+        resp.sendRedirect("/Accueil");
     }
 }
