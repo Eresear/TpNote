@@ -39,7 +39,7 @@
       </c:if>
       <c:if test="${sessionScope.ajouterOffreConfirmation !=null}">
         <div class="alert alert-success alert-dismissible fade show">
-          <strong>Success!</strong> Your message has been sent successfully.
+          <strong>Success!</strong> L'offre a été ajouté!
           <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
       </c:if>
